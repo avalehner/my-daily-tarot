@@ -1,12 +1,14 @@
 // import { useState } from 'react'
 import './App.css'
 import AddCardButton from './components/AddCardButton'
+import ReadingTypeMenu from './components/ReadingTypeMenu'
 
 function App() {
   return (
     <>
       <h1>Card of the day</h1>
       <input type="date" placeholder="Enter date" />
+      <ReadingTypeMenu /> 
       <div id="card-inputs">
         <input type="text" placeholder="Enter card" className="card-input" />
       <AddCardButton />

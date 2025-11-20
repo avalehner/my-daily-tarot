@@ -6,7 +6,7 @@ import ReadingTypeMenu from './components/ReadingTypeMenu'
 function App() {
   return (
     <>
-      <h1>Card of the day</h1>
+      <h1>My Tarot Tracker</h1>
       <input type="date" placeholder="Enter date" />
       <ReadingTypeMenu /> 
       <div id="card-inputs">

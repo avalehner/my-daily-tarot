@@ -2,6 +2,7 @@
 import './App.css'
 import AddCardButton from './components/AddCardButton'
 import ReadingTypeMenu from './components/ReadingTypeMenu'
+import TestComponent from './components/testComponent'
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
       <div>
         <button>Save Reading</button>
       </div>
+      <TestComponent /> 
     </>
   )
 }
+
+
 export default App

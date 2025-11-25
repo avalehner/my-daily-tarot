@@ -32,3 +32,20 @@ export const createReading = async (readingData) => {
     }
   }
 }
+
+export const getAllReadings = async () => {
+  try {
+    const { data , error } = await supabase
+      .from('readings')
+      .select('*')
+      .order('reading_date', { ascending: false })
+
+    if (error) throw error 
+
+    return { success: true, data }
+
+  } catch (error) {
+    console.error('Error:', error)
+    return { success:false, error: error.message}
+  }
+}

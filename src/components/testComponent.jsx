@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { createReading } from "../services/readingService"
+import { createReading } from '../services/readingService'
+import { getAllReadings } from '../services/readingService'
 
 function TestComponent() {
-  const [result, setResults] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [resultOne, setResultsOne] = useState(null)
+  const [loadingOne, setLoadingOne] = useState(false)
+    const [resultTwo, setResultsTwo] = useState(null)
+  const [loadingTwo, setLoadingTwo] = useState(false)
 
   const testCreateReading = async () => {
-    setLoading(true)
-    setResults(null)
+    setLoadingOne(true)
+    setResultsOne(null)
 
     //create test data 
     const testReading = {
@@ -26,34 +29,69 @@ function TestComponent() {
     console.log('sending test data:', testReading)
 
     //call service function 
-    const result = await createReading(testReading)
+    const resultOne = await createReading(testReading)
 
-    console.log('Recieved results:', result)
-    setResults(result)
-    setLoading(false)
+    console.log('Recieved results:', resultOne)
+    setResultsOne(resultOne)
+    setLoadingOne(false)
+  }
+
+  const testGetAllReadings = async () => {
+    setLoadingTwo(true)
+    setResultsTwo(null)
+
+    //calling function 
+    const resultTwo = await getAllReadings()
+
+    console.log('recieved all readings', resultTwo)
+    setResultsTwo(resultTwo)
+    setLoadingTwo(false)
   }
 
   return (
     <div>
-      <h2>test createReading function</h2>
+      <h2>Test Functions</h2>
       <button 
         onClick={testCreateReading} 
-        disabled={loading}
+        disabled={loadingOne}
       >
-        {loading ? 'Testing...' : 'Test Create Reading'}  
+        {loadingOne ? 'Testing...' : 'Test Create Reading'}  
+      </button>
+
+      <button 
+        onClick={testGetAllReadings} 
+        disabled={loadingTwo}
+      >
+        {loadingTwo ? 'Testing...' : 'Test Get All Readings'}  
       </button>
     
-      {result && (
+      {resultOne && (
         <div>
-          {result.success ? (
+          {resultOne.success ? (
             <div>
               <h3>Success!</h3>
-              <p>function working</p>
+              <p>create reading function working</p>
             </div>
           ) : (
             <div>
               <h3>error</h3>
-              <p>function not working</p>
+              <p>create reading function not working</p>
+            </div>
+          )}     
+        </div>
+      )}
+
+      {resultTwo && (
+        <div>
+          {resultTwo.success ? (
+            <div>
+              <h3>Success!</h3>
+              <p>Get All Readings function working</p>
+            </div>
+          ) : (
+            <div>
+              <h3>error</h3>
+              <p>Get All Readings function not working</p>
             </div>
           )}     
         </div>
@@ -63,4 +101,3 @@ function TestComponent() {
 }
 
 export default TestComponent 
-

@@ -1,8 +1,9 @@
-import { useState } from 'react'
-
-const ReadingTypeMenu = () => {
-  const [readingType, setReadingType] = useState('card-of-day')
-  const [customType, setCustomType] = useState('')
+const ReadingTypeMenu = ({ 
+  readingType, 
+  setReadingType, 
+  customReadingType, 
+  setCustomReadingType 
+}) => {
 
   const handleReadingType = (e) => {
     setReadingType(e.target.value)
@@ -25,8 +26,8 @@ const ReadingTypeMenu = () => {
           <input 
             type="text"
             placeholder="Enter reading type"
-            value={customType}
-            onChange={(e) => setCustomType(e.target.value)}
+            value={customReadingType}
+            onChange={(e) => setCustomReadingType(e.target.value)}
           />
       )}
     </div>

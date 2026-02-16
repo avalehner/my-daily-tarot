@@ -98,7 +98,7 @@ function TestServiceFunctionsComponent() {
   const testDeleteReading = async () => {
     setLoadingFive(true)
 
-    const testId = '05a1441b-02cb-4e21-87a5-1bdafaa54b88'
+    const testId = '3707b6d8-2644-475f-90be-2e669254164d'
 
     await deleteReading(testId)
 

@@ -1,7 +1,5 @@
 import { supabase } from "../supabaseClient"
 
-//create reading
-
 export const createReading = async (readingData) => {
   try {
     //inserts data into database 
